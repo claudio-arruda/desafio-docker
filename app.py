@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import os
 
 app = Flask(__name__)
@@ -18,6 +18,10 @@ def list_files():
     
     except Exception as e:
         return f"Erro ao listar arquivos: {str(e)}\n", 500
+    
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "healthy"})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=False)
