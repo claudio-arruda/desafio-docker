@@ -23,7 +23,7 @@ docker build -t desafiodocker .
 Opção 2: Run local
 (Executar o container)
 
-docker run --name desafio_docker -v $PWD/files_data:/files_data -p 8000:8000 desafiodocker:latest
+docker run -it -d --name desafio_docker -v $PWD/files_data:/files_data -p 8000:8000 desafiodocker:latest
 
 Opção 3: Listar arquivos
 (Executar o comando curl no prompt do linux)
@@ -40,3 +40,17 @@ curl http://127.0.0.1:8000/
 │   ├── files03
 │   └── files04
 └── requirements.txt
+
+# Monitoramento
+
+Monitorar recursos do container:
+
+* docker stats desafio_docker
+
+Verificar logs do container:
+
+* docker logs --tail=50 -f desafio_docker
+
+Caso precise fazer alguma chamada via HTTP dentro de um ckluster kubernetes via Liveness Probes, foi criado um health check:
+
+* curl http://localhost:8000/health
