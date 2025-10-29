@@ -1,6 +1,6 @@
 # Desafio1-Docker
 
-Executar uma chamada via HTTP com método GET a plicação irá listar os arquivos de um diretório
+Executar uma chamada via HTTP com método GET, irá listar os arquivos de um diretório
 
 # Características
 
@@ -15,20 +15,29 @@ Docker instalado na sua máquina
 
 # Como Usar
 
-Opção 1: Build local
-(Build da imagem)
+*Opção 1:* Build local
 
+( Crie uma imagem )
+
+```docker
 docker build -t desafiodocker .
+```
 
-Opção 2: Run local
-(Executar o container)
+*Opção 2:* Run local
 
+( Executar o container )
+
+```docker
 docker run -it -d --name desafio_docker -v $PWD/files_data:/files_data -p 8000:8000 desafiodocker:latest
+```
 
-Opção 3: Listar arquivos
-(Executar o comando curl no prompt do linux)
+*Opção 3:* Listar arquivos
 
+( Executar o comando curl no prompt do linux )
+
+```bash
 curl http://127.0.0.1:8000/
+```
 
 # Estrutura do Projeto
 
@@ -45,12 +54,18 @@ curl http://127.0.0.1:8000/
 
 Monitorar recursos do container:
 
-* docker stats desafio_docker
+```docker
+docker stats desafio_docker
+```
 
 Verificar logs do container:
 
-* docker logs --tail=50 -f desafio_docker
+```docker
+docker logs --tail=50 -f desafio_docker
+```
 
 Caso precise fazer alguma chamada via HTTP dentro de um ckluster kubernetes via Liveness Probes, foi criado um health check:
 
-* curl http://localhost:8000/health
+```bash
+curl http://localhost:8000/health
+```
