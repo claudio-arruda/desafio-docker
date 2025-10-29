@@ -2,44 +2,41 @@
 
 Executar uma chamada via HTTP com método GET, irá listar os arquivos de um diretório
 
-# Características
+## Características
 
 * Listar todos os arquivos do diretório mapeado
 * Retornar um arquivo por linha via HTTP GET
 * Rodar na porta 8000
 * Funcionar com qualquer diretório do host mapeado para /files_data no container
 
-# Pré-requisitos
+## Pré-requisitos
 
 Docker instalado na sua máquina
 
-# Como Usar
+## Como Usar
 
-*Opção 1:* Build local
-
+*Opção 1:*
 ( Crie uma imagem )
 
 ```docker
 docker build -t desafiodocker .
 ```
 
-*Opção 2:* Run local
-
+*Opção 2:*
 ( Executar o container )
 
 ```docker
 docker run -it -d --name desafio_docker -v $PWD/files_data:/files_data -p 8000:8000 desafiodocker:latest
 ```
 
-*Opção 3:* Listar arquivos
-
+*Opção 3:*
 ( Executar o comando curl no prompt do linux )
 
 ```bash
 curl http://127.0.0.1:8000/
 ```
 
-# Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 ├── app.py
@@ -52,7 +49,7 @@ curl http://127.0.0.1:8000/
 └── requirements.txt
 ```
 
-# Monitoramento
+## Monitoramento
 
 Monitorar recursos do container:
 
