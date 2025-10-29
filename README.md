@@ -41,6 +41,7 @@ curl http://127.0.0.1:8000/
 
 # Estrutura do Projeto
 
+```
 ├── app.py
 ├── Dockerfile
 ├── files_data
@@ -49,6 +50,7 @@ curl http://127.0.0.1:8000/
 │   ├── files03
 │   └── files04
 └── requirements.txt
+```
 
 # Monitoramento
 
